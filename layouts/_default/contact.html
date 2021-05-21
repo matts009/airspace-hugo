@@ -1,72 +1,88 @@
 {{ define "main" }}
 
-{{ partial "page-title.html" . }}
+<section class="page-title bg-2" style="background-image: url('/images/IMG_4014.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <h1 style="font-weight: bold; -webkit-text-stroke: 1px black">Drop Us A Note</h1>
+          <!-- <p>this is meta description</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="contact-form">
   <div class="container">
-    {{ with site.Params.contact.form }}{{ if .enable }}
+    
     <div class="row">
-      <form method="POST" {{ if .use_netlify }}name="{{ printf "contact_%s" $.Language.Lang }}" action="{{ "/message_sent" | relLangURL }}" netlify netlify-honeypot="nhp"{{ else }}name="contact" action="{{ .action | safeURL }}"{{ end }}>
+      <form method="POST" name="contact_en" action="/message_sent" netlify netlify-honeypot="nhp">
         <div class="col-md-6 col-sm-12">
           <div class="block">
             <div class="form-group">
-              <label for="name" hidden>{{ i18n "contact_form_name" }}</label>
-              <input id="name" name="name" type="text" class="form-control" placeholder="{{ i18n "contact_form_name" }}" required>
+              <label for="name" hidden>Your name</label>
+              <input id="name" name="name" type="text" class="form-control" placeholder="Your name" required>
             </div>
             <div class="form-group">
-              <label for="email" hidden>{{ i18n "contact_form_email" }}</label>
-              <input id="email" name="email" type="email" autocomplete="email" class="form-control" placeholder="{{ i18n "contact_form_email" }}" required>
+              <label for="email" hidden>Your e-mail address</label>
+              <input id="email" name="email" type="email" autocomplete="email" class="form-control" placeholder="Your e-mail address" required>
             </div>
             <div class="form-group">
-              <label for="subject" hidden>{{ i18n "contact_form_subject" }}</label>
-              <input id="subject" name="subject" type="text" class="form-control" placeholder="{{ i18n "contact_form_subject" }}" required>
+              <label for="subject" hidden>Subject</label>
+              <input id="subject" name="subject" type="text" class="form-control" placeholder="Subject" required>
             </div>
-            {{ if .use_netlify }}
+            
             <div class="form-group-h">
               <input name="nhp" type="text" class="form-control" placeholder="Are you made of flesh and bone?">
             </div>
-            {{ end -}}
-          </div>
+            </div>
         </div>
         <div class="col-md-6 col-sm-12">
           <div class="block">
             <div class="form-group-2">
-              <label for="message" hidden>{{ i18n "contact_form_message" }}</label>
-              <textarea id="message" name="message" class="form-control" rows="4" placeholder="{{ i18n "contact_form_message" }}" required></textarea>
+              <label for="message" hidden>Message</label>
+              <textarea id="message" name="message" class="form-control" rows="4" placeholder="Message" required></textarea>
             </div>
-            <button class="btn btn-default" type="submit">{{ i18n "submit" }}</button>
+            <button class="btn btn-default" type="submit">Send message</button>
           </div>
         </div>
       </form>
     </div>
-    {{ end }}{{ end }}
+    
     <div class="contact-box row">
-      {{ with site.Params.contact }}
+      
       <div class="col-md-6 col-sm-12">
         <div class="block">
-          <h2>{{ i18n "address_title" }}</h2>
+          <h2>Address</h2>
           <ul class="address-block">
-            {{ if isset . "location" }}<li><i class="ion-ios-location-outline"></i>{{ if .address_descriptors }}{{ i18n "location" | printf "%s: " }}{{ end }}<div>{{ .location | markdownify }}</div></li>{{ end }}
-            {{ if isset . "email" }}<li><i class="ion-ios-email-outline"></i>{{ if .address_descriptors }}{{ i18n "email" | printf "%s: " }}{{ end }}{{ partial "cloak_email" .email }}</li>{{ end }}
-            {{ if isset . "phone" }}<li><i class="ion-ios-telephone-outline"></i>{{ if .address_descriptors }}{{ i18n "phone" | printf "%s: " }}{{ end }}{{ .phone }}</li>{{ end }}
+            <li><i class="ion-ios-location-outline"></i><div><strong>Dallas Bicycle Tours</strong><br>
+920 S Harwood St<br>
+Dallas, TX<br></div></li>
+            <li><i class="ion-ios-email-outline"></i><span class="cloaked-e-mail" data-user="sruotelcycibsallad" data-domain="moc.liamg"></span></li>
+            <li><i class="ion-ios-telephone-outline"></i>(972) 467-1233            </li>
           </ul>
           <ul class="social-icons">
-            {{ range site.Params.social }}
-            <li><a href="{{ .link | safeURL }}"><i class="{{ .icon }}"></i></a></li>
-            {{ end }}
+            
+            <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+            
+            <li><a href="https://www.facebook.com/dallasbicycletours"><i class="ion-social-facebook-outline"></i></a></li>
+            
           </ul>
         </div>
       </div>
-      {{ end }}
-      {{ if site.Params.gmap.enable }}
+      
+      
       <div class="col-md-6 col-sm-12">
         <div class="block">
-          <div class="google-map">
-            <div class="map" id="map" data-latitude="{{ site.Params.gmap.map_latitude }}" data-longitude="{{ site.Params.gmap.map_longitude }}" data-marker="{{ site.Params.gmap.map_marker | relURL }}" data-marker-name="{{ site.Title }}"></div>
-          </div>
+          <!-- <div class="google-map">
+            <div class="map" id="map" data-latitude="51.5223477" data-longitude="-0.1622023" data-marker="/images/marker.png" data-marker-name="Dallas Bicycle Tours"></div>
+          </div> -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214651.65856546862!2d-97.32113213012974!3d32.79405788640424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e98e17bb9fbc1%3A0xbcf9f72cfca3498a!2sDallas%20Farmers%20Market!5e0!3m2!1sen!2sus!4v1621628185772!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
-      {{ end }}
+      
     </div>
   </div>
 </section>

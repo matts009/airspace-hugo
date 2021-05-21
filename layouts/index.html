@@ -1,136 +1,152 @@
 {{ define "main" }}
 
-<!-- banner -->
-{{ with .Params.banner }}
-{{ if .enable }}
-<section class="slider {{if .bg_overlay}}overly{{end}}" style="background-image: url('{{ .bg_image | relURL }}');">
+<section class="slider overly" style="background-image: url('/images/IMG_4226.jpg');">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="block">
-          {{ with .title }}<h1>{{ . | markdownify }}</h1>{{ end }}
-          {{ with .content }}{{ . | $.Page.RenderString (dict "display" "block") }}{{ end }}
-          {{ with .button }}
-          {{ if .enable }}
-          <a href="{{ .link | relLangURL }}" class="btn btn-main animated fadeInUp">{{ .label }}</a>
-          {{ end }}
-          {{ end }}
+          <h1 style="font-weight: bolder; -webkit-text-stroke: 1px black;">Dallas Bicycle Tours</h1>
+          <p style="color:white">We love the Web and the work we do.We work closely with our clients to deliver  the best possible solutions for their needs</p>
+
+          
+          
+          <a href="#" class="btn btn-main animated fadeInUp">BOOK A TOUR</a>
+          
+          
         </div>
       </div>
     </div>
   </div>
 </section>
-{{ end }}
-{{ end }}
-<!-- /banner -->
 
-<!-- about -->
-{{ with .Params.about }}
-{{ if .enable }}
 <section class="about section">
   <div class="container">
     <div class="row">
       <div class="col-md-7 col-sm-12">
         <div class="block">
           <div class="section-title">
-            {{ with .title }}<h2>{{ . | markdownify }}</h2>{{ end }}
-            {{ with .description }}{{ . | $.Page.RenderString (dict "display" "block") }}{{ end }}
+            <h2>About Us</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+
           </div>
-          {{ with .content }}{{ . | $.Page.RenderString (dict "display" "block") }}{{ end }}
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id.</p>
+          <a href="#" class="btn btn-main animated fadeInUp">LEARN MORE</a>
         </div>
       </div>
       <div class="col-md-5 col-sm-12">
         <div class="block">
-          <img src="{{ .image | relURL }}" class="img-responsive" alt="Img">
+          <img src="/images/tuxpi.com.1621617984.jpg" class="img-responsive" alt="Img">
         </div>
       </div>
     </div>
   </div>
 </section>
-{{ end }}
-{{ end }}
-<!-- /about -->
 
-<!-- portfolio -->
-{{ with .Params.portfolio }}
-{{ if .enable }}
-<section class="feature bg-2" style="background-image: url('{{ .bg_image | relURL}}')">
+<style>
+  #midway .col-md-6 {
+    border-radius:50px;
+    background-color: white;
+    opacity: 0.9;
+    padding-left:25px;
+  }
+</style>
+
+<section class="feature bg-2" style="background-image: url('/images/DSC_5093.jpg')" id="midway">
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-6">
-        {{ with .title }}<h2 class="section-subtitle">{{ . | markdownify }}</h2>{{ end }}
-        {{ with .content }}{{ . | $.Page.RenderString (dict "display" "block") }}{{ end }}
-        {{ with .button }}
-        {{ if .enable }}
-        <a href="{{ .link | relLangURL }}" class="btn btn-view-works">{{ .label }}</a>
-        {{ end }}
-        {{ end }}
+        <h2 class="section-subtitle">FIGURE OUT WHAT TO PUT HERE</h2>
+        <p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+<p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+<p>Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+        
+        
+        <a href="/project" class="btn btn-view-works">BUTTON TO A PAGE?</a>
+        
+        
       </div>
     </div>
   </div>
 </section>
-{{ end }}
-{{ end }}
-<!-- /portfolio -->
 
 <!-- service -->
-{{ if .Params.service.enable }}
+<!-- {{ if .Params.service.enable }}
 {{ partial "service.html" . }}
-{{ end }}
+{{ end }} -->
 <!-- /service -->
 
 <!-- call to action -->
-{{ if .Params.cta.enable }}
+<!-- {{ if .Params.cta.enable }}
 {{ partial "cta.html" . }}
-{{ end }}
+{{ end }} -->
 <!-- /call to action -->
 
 <!-- funfacts -->
-{{ with .Params.funfacts }}
-{{ if .enable }}
 <section class="testimonial">
   <div class="container">
     <div class="row">
       <div class="section-title text-center">
-        {{ with .title }}<h2>{{ . | markdownify }}</h2>{{ end }}
-        {{ with .description }}{{ . | $.Page.RenderString (dict "display" "block") }}{{ end }}
+        <h2>Testimonials</h2>
+        <p>&lsquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&rsquo;</p>
+
       </div>
     </div>
     <div class="row">
+      <style>
+        .testimonial-image {
+          height:380px; 
+          background-image: url('/images/DSC_5122.jpg'); 
+          background-size: cover; 
+          background-position: center bottom;
+          box-shadow: 4px 4px 4px gray;
+        }
+      </style>
       <div class="col-md-6">
-        <div class="block">
-          <ul class="counter-box clearfix">
-            {{ range .funfact_item }}
-            <li class="counter-item">
-              <i class="{{ .icon }}"></i>
-              <h4 class="count" data-count="{{ .count }}">0</h4>
-              <span>{{ .name | markdownify }}</span>
-            </li>
-            {{ end }}
-          </ul>
+        <div class="block testimonial-image">
+          <img src="">
         </div>
       </div>
       <div class="col-md-5 col-md-offset-1">
         <div class="testimonial-carousel text-center">
           <div class="testimonial-slider owl-carousel">
-            {{ range .testimonial_slider }}
+            
             <div>
               <i class="ion-quote"></i>
-              {{ with .content }}{{ . | $.Page.RenderString (dict "display" "block") }}{{ end }}
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
               <div class="user">
-                <img src="{{ .image | relURL }}" alt="client">
-                <p><span>{{ .name | markdownify }}</span> {{ .designation | markdownify }}</p>
+                <img src="/images/clients/avater-1.jpg" alt="client">
+                <p><span>John Doe</span> Dallas, TX</p>
               </div>
             </div>
-            {{ end }}
+            
+            <div>
+              <i class="ion-quote"></i>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+              <div class="user">
+                <img src="/images/clients/avater-1.jpg" alt="client">
+                <p><span>Jane Doe</span> Fort Worth, TX</p>
+              </div>
+            </div>
+            
+            <div>
+              <i class="ion-quote"></i>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+              <div class="user">
+                <img src="/images/clients/avater-3.jpg" alt="client">
+                <p><span>Rose Rio</span> CEO-Themefisher</p>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-{{ end}}
-{{ end}}
 <!-- /funfacts -->
 
 {{ end }}
